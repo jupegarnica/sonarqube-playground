@@ -1,42 +1,12 @@
-# https://github.com/bitnami/bitnami-docker-sonarqube#readme
-# https://bitnami.com/stack/sonarqube/containers
 version: '2'
 services:
-  postgresql:
-    user: root
-    image: docker.io/bitnami/postgresql:13
-    volumes:
-      - './postgresql_data:/bitnami/postgresql'
-    environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      # - ALLOW_EMPTY_PASSWORD=yes
-      - POSTGRESQL_PASSWORD=1234
-      - POSTGRESQL_USERNAME=bn_sonarqube
-      - POSTGRESQL_DATABASE=bitnami_sonarqube
-    ports:
-      - '5432:5432'
   sonarqube:
-    user: root
-    image: docker.io/bitnami/sonarqube:9
+    image: sonarqube
     ports:
       - '9000:9000'
+      - '9092:9092'
     volumes:
-      - './sonarqube_data:/bitnami/sonarqube'
-    depends_on:
-      - postgresql
-    environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      # - ALLOW_EMPTY_PASSWORD=yes
-      - SONARQUBE_DATABASE_HOST=postgresql
-      - SONARQUBE_DATABASE_PORT_NUMBER=5432
-      - SONARQUBE_DATABASE_PASSWORD=1234
-      - SONARQUBE_DATABASE_USER=bn_sonarqube
-      - SONARQUBE_DATABASE_NAME=bitnami_sonarqube
-      - SONARQUBE_START_TIMEOUT=300
-      - SONARQUBE_USERNAME=admin
-      - SONARQUBE_PASSWORD=admin1234
-# volumes:
-#   postgresql_data:
-#     driver: local
-#   sonarqube_data:
-#     driver: local
+      - ./sonarquebe-data/sonarqube-conf:/opt/sonarqube/conf
+      - ./sonarquebe-data/sonarqube-data:/opt/sonarqube/data
+      - ./sonarquebe-data/sonarqube-logs:/opt/sonarqube/logs
+      - ./sonarquebe-data/sonarqube-extensions:/opt/sonarqube/extensions
