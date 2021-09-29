@@ -10,3 +10,13 @@ services:
       - ./sonarqube-data/sonarqube-data:/opt/sonarqube/data
       - ./sonarqube-data/sonarqube-logs:/opt/sonarqube/logs
       - ./sonarqube-data/sonarqube-extensions:/opt/sonarqube/extensions
+
+  scanner:
+    depends_on:
+      - sonarqube
+    image: sonarsource/sonar-scanner-cli
+    volumes:
+      - './app:/usr/src'
+    environment:
+     - SONAR_HOST_URL=http://sonarqube:9000
+     - SONAR_LOGIN=34eaef7a15e57cf4794100a4a31ab2dcf9340d48
