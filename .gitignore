@@ -1,4 +1,4 @@
-*_data
-.vscode
+.vscode/
 sonar-scanner*
 .scannerwork
+sonarqube-data/

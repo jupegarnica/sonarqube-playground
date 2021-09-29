@@ -6,7 +6,7 @@ services:
       - '9000:9000'
       - '9092:9092'
     volumes:
-      - ./sonarquebe-data/sonarqube-conf:/opt/sonarqube/conf
-      - ./sonarquebe-data/sonarqube-data:/opt/sonarqube/data
-      - ./sonarquebe-data/sonarqube-logs:/opt/sonarqube/logs
-      - ./sonarquebe-data/sonarqube-extensions:/opt/sonarqube/extensions
+      - ./sonarqube-data/sonarqube-conf:/opt/sonarqube/conf
+      - ./sonarqube-data/sonarqube-data:/opt/sonarqube/data
+      - ./sonarqube-data/sonarqube-logs:/opt/sonarqube/logs
+      - ./sonarqube-data/sonarqube-extensions:/opt/sonarqube/extensions
