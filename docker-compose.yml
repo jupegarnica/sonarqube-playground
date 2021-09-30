@@ -8,6 +8,7 @@ services:
     container_name: sonarqube
     ports:
       - "9000:9000"
+      - "9092:9092"
     networks:
       - sonarnet
     environment:
@@ -48,7 +49,7 @@ services:
       - './app:/usr/src'
     environment:
      - SONAR_HOST_URL=http://sonarqube:9000
-     - SONAR_LOGIN=16d9ffc2d3a283deb21a36918a19d5258c172f76
+     - SONAR_LOGIN=d7eef8e957682aa1ae014e132cf9d12e574bd919
 
 
 networks:
