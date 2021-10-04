@@ -46,10 +46,10 @@ services:
       - sonarqube
     image: sonarsource/sonar-scanner-cli
     volumes:
-      - './app:/usr/src'
+      - './plain-db:/usr/src'
     environment:
      - SONAR_HOST_URL=http://sonarqube:9000
-     - SONAR_LOGIN=d7eef8e957682aa1ae014e132cf9d12e574bd919
+     - SONAR_LOGIN=bb935a055acc6dde5892099e4a822abe7f84a553
 
 
 networks:
