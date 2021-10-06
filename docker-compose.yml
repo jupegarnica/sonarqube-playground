@@ -8,7 +8,7 @@ services:
     container_name: sonarqube
     ports:
       - "9000:9000"
-      - "9092:9092"
+      # - "9092:9092"
     networks:
       - sonarnet
     environment:
@@ -39,17 +39,17 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
 
-  scanner:
+  scanner-app:
     networks:
       - sonarnet
     depends_on:
       - sonarqube
     image: sonarsource/sonar-scanner-cli
     volumes:
-      - './plain-db:/usr/src'
+      - './app:/usr/src'
     environment:
      - SONAR_HOST_URL=http://sonarqube:9000
-     - SONAR_LOGIN=bb935a055acc6dde5892099e4a822abe7f84a553
+     - SONAR_LOGIN=f5667a5a7d30887534778cc55236401efdb1f295
 
 
 networks:

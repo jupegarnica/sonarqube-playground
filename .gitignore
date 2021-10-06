@@ -2,3 +2,6 @@
 sonar-scanner*
 .scannerwork
 sonarqube-data/
+pdfs/
+plain-db
+app/
