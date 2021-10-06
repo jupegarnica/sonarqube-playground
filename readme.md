@@ -1,7 +1,7 @@
 ### Run sonarqube server
 
 ```sh
-docker-compose run sonarqube
+docker-compose up sonarqube
 ```
 
 
@@ -15,7 +15,7 @@ pass: admin
 ### star scanner
 
 ```sh
-docker-compose run scanner
+docker-compose run scanner-app
 ```
 
 
