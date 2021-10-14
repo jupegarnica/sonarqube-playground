@@ -14,7 +14,7 @@ default login: admin/admin
 
 ### start scanner
 
-Copy token at docker-compose.yml -> scanner-app - environment -> SONAR_LOGIN
+Copy token at docker-compose.yml -> scanner-app -> environment -> SONAR_LOGIN
 ```sh
 docker-compose run scanner-app
 ```
