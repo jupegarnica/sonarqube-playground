@@ -4,4 +4,3 @@ sonar-scanner*
 sonarqube-data/
 pdfs/
 plain-db
-app/

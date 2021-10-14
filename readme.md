@@ -7,13 +7,14 @@ docker-compose up sonarqube
 
 ### crete admin user
 
-go to  http://localhost:9000/
-user: admin
-pass: admin
+go to  http://localhost:9000/ to change to default login:
+
+default login: admin/admin
 
 
-### star scanner
+### start scanner
 
+Copy token at docker-compose.yml -> scanner-app - environment -> SONAR_LOGIN
 ```sh
 docker-compose run scanner-app
 ```
