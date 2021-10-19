@@ -4,7 +4,6 @@ services:
   sonarqube:
     depends_on:
       - postgres
-      - jenkins
     image: sonarqube
     container_name: sonarqube
     ports:
@@ -40,19 +39,21 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
 
-  scanner-app:
-    networks:
-      - sonarnet
-    # depends_on:
-    #   - sonarqube
-    image: sonarsource/sonar-scanner-cli
-    volumes:
-      - './practicaSonar:/usr/src'
-    environment:
-     - SONAR_HOST_URL=https://jupegarnica-sonarqube-playground-qg6qj96h954v-9000.githubpreview.dev
-     - SONAR_LOGIN=408af1d7fcb2ff363a941f46eb5239c7a661d583
+  # scanner-app:
+  #   networks:
+  #     - sonarnet
+  #   # depends_on:
+  #   #   - sonarqube
+  #   image: sonarsource/sonar-scanner-cli
+  #   volumes:
+  #     - './practicaSonar:/usr/src'
+  #   environment:
+  #    - SONAR_HOST_URL=https://jupegarnica-sonarqube-playground-qg6qj96h954v-9000.githubpreview.dev
+  #    - SONAR_LOGIN=408af1d7fcb2ff363a941f46eb5239c7a661d583
 
   jenkins:
+    depends_on:
+      - sonarqube
     networks:
       - sonarnet
     image: jenkins/jenkins

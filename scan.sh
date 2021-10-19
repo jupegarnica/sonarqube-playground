@@ -23,6 +23,8 @@ export PROYECT_KEY=rules-store
 #   -Dsonar.host.url=http://localhost:9000 \
 #   -Dsonar.login=982470a9052dbe6221b9515e22f9b326f44f39ab
 
+
+
 # export TOKEN="982470a9052dbe6221b9515e22f9b326f44f39ab"
 # docker run \
 #     --rm \
