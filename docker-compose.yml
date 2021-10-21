@@ -57,12 +57,21 @@ services:
     networks:
       - sonarnet
     image: jenkins/jenkins
+    # environment:
+    #   JENKINS_OPTS: "-d"
     ports:
       - "8080:8080"
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
 
+  maildev:
+    networks:
+      - sonarnet
+    image: maildev/maildev
+    ports:
+      - "1080:80"
+      - "1025:25"
 networks:
   sonarnet:
     driver: bridge
